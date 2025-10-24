@@ -1,2 +1,1 @@
-Sollevanti
-Scuola
+458 GTE = Gara Cavalli
