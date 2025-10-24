@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Inserisci la lunghezza del percorso (in metri): ");
+        int lunghezza = input.nextInt();
+        input.nextLine(); // consuma il newline lasciato da nextInt()
+
+        System.out.print("Quanti cavalli partecipano alla gara? ");
+        int numeroCavalli = input.nextInt();
+        input.nextLine(); // consuma il newline
+
+        // Creiamo la lista dei cavalli
+        ArrayList<Cavallo> cavalli = new ArrayList<>();
+
+        // Chiediamo all’utente di inserire i nomi
+        for (int i = 0; i < numeroCavalli; i++) {
+            System.out.print("Inserisci il nome del cavallo " + (i + 1) + ": ");
+            String nome = input.nextLine();
+            cavalli.add(new Cavallo(nome));
+        }
+
+        boolean garaFinita = false;
+        Cavallo vincitore = null;
+
+        // Ciclo di gara
+        while (!garaFinita) {
+
+            for (Cavallo c : cavalli) {
+                c.avanza();
+                System.out.println(c.getNome() + " è a " + c.getPosizione() + " metri.");
+
+                // Controlla se ha finito
+                if (c.haFinito(lunghezza)) {
+                    garaFinita = true;
+                    vincitore = c;
+                    break;
+                }
+            }
+
+            System.out.println("------------------------------");
+        }
+
+        System.out.println("🏆 Il vincitore è " + vincitore.getNome() + "!");
+        input.close();
+    }
+}
