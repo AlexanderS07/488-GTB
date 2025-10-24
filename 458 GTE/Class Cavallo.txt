@@ -1,0 +1,57 @@
+public class Cavallo {
+
+    private String nome;
+
+    private int posizione;
+
+
+
+    public Cavallo(String nome) {
+
+        this.nome = nome;
+
+        this.posizione = 0;
+
+    }
+
+
+
+    public String getNome() {
+
+        return nome;
+
+    }
+
+
+
+    public int getPosizione() {
+
+        return posizione;
+
+    }
+
+
+
+    // Ogni ciclo il cavallo avanza di 5 metri
+
+    public void avanza() {
+
+        posizione += 5;
+
+    }
+
+
+
+    // Ritorna true se il cavallo ha terminato la gara
+
+    public boolean haFinito(int distanzaTotale) {
+
+        return posizione >= distanzaTotale;
+
+    }
+
+}
+
+
+
+import java.util.Scanner;
